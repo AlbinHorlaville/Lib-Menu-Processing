@@ -27,5 +27,19 @@ void mousePressed(){
     println("credits marche !");
     menu.credits.button_pressed();
   }
+}
+void mouseReleased(){
+  if (menu.play.released()){
+    println("play marche !");
+    menu.play.button_released();
+  }
+    if (menu.settings.released()){
+    println("settings marche !");
+    menu.settings.button_released();
+  }
+    if (menu.credits.released()){
+    println("credits marche !");
+    menu.credits.button_released();
+  }
   
 }
