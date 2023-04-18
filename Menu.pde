@@ -10,37 +10,27 @@ class Button{
     this.ygh = ygh;
     this.hauteur = hauteur;
     this.largeur = largeur;
+  }
+  void display(){
     rectMode(CENTER);
-    fill(200, 0, 100);
+    if (this.MouseOnButton() && mousePressed){
+      fill(200, 0, 100);
+    }else{
+      fill(255, 180, 200);
+    }
     rect(xgh, ygh, hauteur, largeur, 28);
     fill(255, 255, 255);
-    textAlign(CENTER);
+    PFont mono;
+    mono = createFont("andalemo.ttf", 20);
+    textFont(mono);
+    textAlign(CENTER, CENTER);
     text(name, xgh, ygh);
   }
   
   
   // La souris a pressé le bouton
-  boolean pressed(){
+  boolean MouseOnButton(){
     return xgh-hauteur/2<mouseX && mouseX<xgh+hauteur/2 && ygh-largeur/2<mouseY && mouseY<ygh+largeur/2; 
-  }
-  void button_pressed(){
-    fill(255, 180, 200);
-    rect(xgh, ygh, hauteur, largeur, 28);
-    fill(255, 255, 255);
-    textAlign(CENTER);
-    text(name, xgh, ygh);
-  }
-  
-    // La souris a relaché le bouton
-  boolean released(){
-    return xgh-hauteur/2<mouseX && mouseX<xgh+hauteur/2 && ygh-largeur/2<mouseY && mouseY<ygh+largeur/2; 
-  }
-  void button_released(){
-    fill(200, 0, 100);
-    rect(xgh, ygh, hauteur, largeur, 28);
-    fill(255, 255, 255);
-    textAlign(CENTER);
-    text(name, xgh, ygh);
   }
 }
 
@@ -56,5 +46,15 @@ class Menu {
   }
   
   void display(){
+    PFont mono;
+    // The font "andalemo.ttf" must be located in the 
+    // current sketch's "data" directory to load successfully
+    mono = createFont("andalemo.ttf", 128);
+    textFont(mono);
+    text("MENU", 500/2, 500/4);
+    play.display();
+    settings.display();
+    credits.display();
+    // Possibilité de faire un tableau
   }
 }
