@@ -3,6 +3,7 @@ int red; int green; int blue; int u; int window; int Colorset;
 Menu menu;
 Settings settings;
 Credits credits;
+Play play;
 
 void setup() {
   red = 250;
@@ -16,7 +17,7 @@ void setup() {
   menu = new Menu();
   settings = new Settings();
   credits = new Credits();
-
+  play = new Play();
 }
 
 void display(){
@@ -28,6 +29,9 @@ void display(){
   }
   else if (credits.OnCredits()){
     credits.display(Colorset);
+  }
+  else if (play.OnPlay()){
+    play.display(Colorset);
   }
 }
 
@@ -44,12 +48,17 @@ void display(){
   }
 
 void draw() {
-  background(220,220,255);
+  //background(220,220,255);
+  background((mouseX/2)%255, 220, 255);
   display();
 }
 
 void mouseReleased(){
-  if (menu.settings.MouseOnButton() && menu.OnMenu()){ // Accés aux Settings
+  if (menu.play.MouseOnButton() && menu.OnMenu()){ // Accés aux Settings
+    menu.ChangeOnMenu();
+    play.ChangeOnPlay();
+  }
+  else if (menu.settings.MouseOnButton() && menu.OnMenu()){ // Accés aux Settings
     menu.ChangeOnMenu();
     settings.ChangeOnSettings();
   }

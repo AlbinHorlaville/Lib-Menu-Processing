@@ -4,6 +4,7 @@ class Button{
   int ygh;
   int hauteur;
   int largeur;
+  
   Button(String name, int xgh, int ygh, int hauteur, int largeur) {
     this.name = name;
     this.xgh = xgh;
