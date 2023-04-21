@@ -25,7 +25,7 @@ class Menu {
     // current sketch's "data" directory to load successfully
     mono = createFont("andalemo.ttf", 128);
     textFont(mono);
-    text("MENU", 500/2, 500/4);
+    text("SNAKE", 500/2, 500/4);
     play.display(Colorset);
     settings.display(Colorset);
     credits.display(Colorset);
