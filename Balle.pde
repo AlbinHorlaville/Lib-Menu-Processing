@@ -1,24 +1,24 @@
 class Balle{
   int xgh;
   int ygh;
-  int radius;
+  int diameter;
   int direction;
   boolean disp; // empêche de clipping du corps du ver de terre quand il croque le fruit
   
   Balle(){
-    xgh = width/2;
-    ygh = height/2;
-    radius = 50;
+    this.xgh = width/2;
+    this.ygh = height/2;
+    this.diameter = 50;
   }
   
   Balle(int X, int Y){
-    xgh = X;
-    ygh = Y;
-    radius = 50;
+    this.xgh = X;
+    this.ygh = Y;
+    this.diameter = 50;
   }
   
   boolean InWindow(){
-    return xgh-radius/2>0 && xgh+radius/2<width && ygh-radius/2>0 && ygh+radius/2<width;
+    return this.xgh-this.diameter/2>0 && this.xgh+this.diameter/2<width && this.ygh-this.diameter/2>0 && this.ygh+this.diameter/2<width;
   }
   
 
@@ -41,6 +41,6 @@ class Balle{
     }
     fill(colorR+55, colorB+100, colorR);
     noStroke();
-    circle(this.xgh, this.ygh, radius);
+    circle(this.xgh, this.ygh, this.diameter);
   }
 }

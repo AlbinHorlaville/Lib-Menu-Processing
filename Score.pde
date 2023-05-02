@@ -19,8 +19,9 @@ class Score{
     this.best = 0;
   }
   
-  void updateBest(){
+  void updateBest(){ // Historique des meilleurs score, à stocker dans un fichier et à afficher dans un menu dédier (à faire)
     this.best = max(this.best, this.current);
+    // enregistrer nouveau record
   }
   
   void display(){

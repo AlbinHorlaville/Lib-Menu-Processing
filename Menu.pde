@@ -30,6 +30,5 @@ class Menu {
     settings.display(Colorset);
     credits.display(Colorset);
     // Possibilité de faire un tableau
-    
   }
 }

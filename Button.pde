@@ -48,7 +48,7 @@ class Button{
   }
   
   
-  // La souris a pressé le bouton
+  // Return true if the mouse is above the button
   boolean MouseOnButton(){
     return xgh-hauteur/2<mouseX && mouseX<xgh+hauteur/2 && ygh-largeur/2<mouseY && mouseY<ygh+largeur/2; 
   }

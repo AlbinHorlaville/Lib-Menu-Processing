@@ -41,57 +41,55 @@ class Snake{
       this.body.get(i).xgh = this.body.get(i-1).xgh;
       this.body.get(i).ygh = this.body.get(i-1).ygh;
     }
-    if (key==CODED){
-      if (keyCode==LEFT && head().xgh-head().radius/2>0){
-        if (this.last_direction==RIGHT){ // On interdit le demi tour
-          head().xgh = head().xgh + 5;
-        }
-        else{
-          
+  //  if (key==CODED){
+      if (keyCode==LEFT && this.last_direction!=RIGHT && head().xgh-head().diameter/2>0){
           head().xgh = head().xgh - 5;
           this.last_direction = LEFT;
-        }
       }
-      else if (keyCode==RIGHT && head().xgh+head().radius/2<width){
-        if (this.last_direction==LEFT){ // On interdit le demi tour
-          head().xgh = head().xgh - 5;
-        }
-        else{
+      else if (keyCode==RIGHT && this.last_direction!=LEFT && head().xgh+head().diameter/2<width){
           head().xgh = head().xgh + 5;
           this.last_direction = RIGHT;
-        }
       }
-      else if (keyCode==UP && head().ygh-head().radius/2>0){
-        if (this.last_direction==DOWN){ // On interdit le demi tour
-          head().ygh = head().ygh + 5;
-        }
-        else{
+      else if (keyCode==UP && this.last_direction!=DOWN && head().ygh-head().diameter/2>0){
           head().ygh = head().ygh - 5;
           this.last_direction = UP;
-        }
       }
-      else if (keyCode==DOWN && head().ygh+head().radius/2<width){
-        if (this.last_direction==UP){ // On interdit le demi tour
-          head().ygh = head().ygh - 5;
-        }
-        else{
+      else if (keyCode==DOWN && this.last_direction!=UP && head().ygh+head().diameter/2<width){
           head().ygh = head().ygh + 5;
           this.last_direction = DOWN;
+      } // Cas où l'on appuie sur une autre touche du clavier
+      else{
+        if (this.last_direction==LEFT){
+          println("LEFT");
+          head().xgh = head().xgh - 5;
+        }
+        else if (this.last_direction==RIGHT){
+          println("RIGHT");
+          head().xgh = head().xgh + 5;
+        }
+        else if(this.last_direction==UP){
+          println("UP");
+          head().ygh = head().ygh - 5;
+        }
+        else if (this.last_direction==DOWN){
+          println("DOWN");
+          head().ygh = head().ygh + 5;
         }
       }
-      if (head().xgh-head().radius/2<=0){
-        head().xgh = width - head().radius/2 -1;
+      // The snake has to be teleport to the opposite side if he hit a wall (window's side)
+      if (head().xgh-head().diameter/2<=0){
+        head().xgh = width - head().diameter/2 -1;
       }
-      else if (head().xgh+head().radius/2>=width){
-        head().xgh = 0 + head().radius/2 + 1;
+      else if (head().xgh+head().diameter/2>=width){
+        head().xgh = 0 + head().diameter/2 + 1;
       }
-      else if (head().ygh-head().radius/2<=0){
-        head().ygh = width - head().radius/2 -1;
+      else if (head().ygh-head().diameter/2<=0){
+        head().ygh = width - head().diameter/2 -1;
       }
-      else if (head().ygh+head().radius/2>=width){
-        head().ygh = 0 + head().radius/2 + 1;
+      else if (head().ygh+head().diameter/2>=width){
+        head().ygh = 0 + head().diameter/2 + 1;
       }
-    }
+   // }
   }
   
   void display(int Colorset){

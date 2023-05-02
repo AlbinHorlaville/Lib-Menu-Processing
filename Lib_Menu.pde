@@ -33,6 +33,9 @@ void display(){
   else if (play.OnPlay()){
     play.display(Colorset);
   }
+  else if (play.end.OnEnd()){
+    play.end.display(Colorset, play.score.current);
+  }
 }
 
   void SetColor1(){
@@ -73,6 +76,14 @@ void mouseReleased(){
   else if (credits.Return.MouseOnButton() && credits.OnCredits()){ // Retour menu depuis settings
     menu.ChangeOnMenu();
     credits.ChangeOnCredits();
+  }
+  else if (play.end.replay.MouseOnButton() && play.end.OnEnd()){ // Retour menu depuis settings
+    play = new Play();
+    play.ChangeOnPlay();
+  }
+  else if (play.end.home.MouseOnButton() && play.end.OnEnd()){ // Retour menu depuis settings
+    play = new Play();
+    menu.ChangeOnMenu();
   }
   else if (settings.Color1.MouseOnButton() && settings.OnSettings()){ // change setcolor
     SetColor1();
