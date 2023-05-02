@@ -37,6 +37,7 @@ class Button{
       fill(colorR+55, colorB+100, colorR);
     }
     rectMode(CENTER);
+    stroke(50);
     rect(xgh, ygh, hauteur, largeur, 28);
     fill(255, 255, 255);
     PFont mono;

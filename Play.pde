@@ -1,12 +1,14 @@
 class Play{
-  Balle ball;
+  Snake snake;
   Fruit fruit;
+  Score score;
   boolean onPlay;
   
   Play(){
-    ball = new Balle();
-    fruit = new Fruit();
-    onPlay = false;
+    this.snake = new Snake();
+    this.fruit = new Fruit();
+    this.score = new Score();
+    this.onPlay = false;
   }
   
   boolean OnPlay(){
@@ -17,14 +19,18 @@ class Play{
     this.onPlay = !this.onPlay;
   }
   void Collision(){
-    if (ball.xgh>fruit.xgh-fruit.diameter && ball.xgh<fruit.xgh+fruit.diameter && ball.ygh>fruit.ygh-fruit.diameter && ball.ygh<fruit.ygh+fruit.diameter){
+    if (snake.head().xgh>fruit.xgh-fruit.diameter && snake.head().xgh<fruit.xgh+fruit.diameter && snake.head().ygh>fruit.ygh-fruit.diameter && snake.head().ygh<fruit.ygh+fruit.diameter){
       fruit.RandomPos();
+      for (int i=0; i<5; i++){
+        snake.grow();
+      }
+      this.score.increase();
     }
   }
   void display(int Colorset){
     Collision();
     fruit.display();
-    ball.display(Colorset);
-    
+    snake.display(Colorset);
+    score.display();
   }
 }

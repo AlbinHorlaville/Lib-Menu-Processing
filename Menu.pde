@@ -23,9 +23,9 @@ class Menu {
     PFont mono;
     // The font "andalemo.ttf" must be located in the 
     // current sketch's "data" directory to load successfully
-    mono = createFont("andalemo.ttf", 128);
+    mono = createFont("andalemo.ttf", 100);
     textFont(mono);
-    text("SNAKE", 500/2, 500/4);
+    text("LOMBRIZ", 500/2, 500/4);
     play.display(Colorset);
     settings.display(Colorset);
     credits.display(Colorset);

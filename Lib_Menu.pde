@@ -48,13 +48,13 @@ void display(){
   }
 
 void draw() {
-  //background(220,220,255);
-  background((mouseX/2)%255, 220, 255);
+  background(100,255,150);
+  //background((mouseX/2)%255, 220, 255);
   display();
 }
 
 void mouseReleased(){
-  if (menu.play.MouseOnButton() && menu.OnMenu()){ // Accés aux Settings
+  if (menu.play.MouseOnButton() && menu.OnMenu()){ // Accés au jeu
     menu.ChangeOnMenu();
     play.ChangeOnPlay();
   }
@@ -82,5 +82,13 @@ void mouseReleased(){
   }
   else if (settings.Color3.MouseOnButton() && settings.OnSettings()){ // change setcolor
     SetColor3();
+  }
+}
+
+void keyReleased(){
+  if (key==BACKSPACE && play.OnPlay()){ // Accés aux Settings
+    println("OUI");
+    menu.ChangeOnMenu();
+    play.ChangeOnPlay();
   }
 }
